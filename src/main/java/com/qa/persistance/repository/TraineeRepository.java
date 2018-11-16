@@ -1,13 +1,13 @@
 package com.qa.persistance.repository;
 
-import com.qa.persistance.domain.Classroom;
+import com.qa.persistance.domain.Trainee;
 
 public interface TraineeRepository {
-		public Classroom findTrainee(Long traineeID);
+		public Trainee findTrainee(Long traineeID);
 
 		public String findAllTrainees();
 
-		public String createTrainees(String newTrainee);
+		public String createTrainee(String newTrainee);
 
 		public String updateTrainee(Long traineeID, String updateTrainee);
 
