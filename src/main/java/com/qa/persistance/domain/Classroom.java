@@ -20,7 +20,7 @@ public class Classroom {
 	@Column(length = 100)
 	private String trainer;
 
-	@OneToMany(mappedBy="trainerTrainee")
+	@OneToMany(mappedBy="classrm")
 	private List<Trainee> trainees;
 
 	public Long getClassroomID() {
