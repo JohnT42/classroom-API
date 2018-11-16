@@ -2,7 +2,6 @@ package com.qa.persistance.repository;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +12,6 @@ import com.qa.persistance.domain.Classroom;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
-@Default
 public class ClassroomDBRepository implements  ClassroomRepository {
 
 	@PersistenceContext(unitName = "primary")
@@ -27,7 +25,7 @@ public class ClassroomDBRepository implements  ClassroomRepository {
 	}
 
 	public String findAllClassrooms() {
-	        TypedQuery<Classroom> query = em.createQuery("SELECT a FROM Accounts a", Classroom.class);
+	        TypedQuery<Classroom> query = em.createQuery("SELECT c FROM Classroom c", Classroom.class);
 	        return util.getJSONForObject(query.getResultList());
 	    }
 
@@ -36,7 +34,7 @@ public class ClassroomDBRepository implements  ClassroomRepository {
 	public String createClassroom(String newclassroom) {
 		Classroom aClassroom = util.getObjectForJSON(newclassroom, Classroom.class);
 		em.persist(aClassroom);
-		return "{\"message\": \"account added\"}";
+		return "{\"message\": \"Classroom added\"}";
 	}
 
 	@Transactional(REQUIRED)
