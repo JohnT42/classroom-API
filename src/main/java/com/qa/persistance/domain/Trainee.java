@@ -20,7 +20,7 @@ public class Trainee {
 	private String trainee;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	private Classroom trainerTrainee;
+	private Classroom classrm;
 
 	public Long getTraineeID() {
 		return traineeID;
@@ -38,12 +38,12 @@ public class Trainee {
 		this.trainee = trainee;
 	}
 
-	public Classroom getTrainerTrainee() {
-		return trainerTrainee;
+	public Classroom getClassrm() {
+		return classrm;
 	}
 
-	public void setTrainerTrainee(Classroom trainerTrainee) {
-		this.trainerTrainee = trainerTrainee;
+	public void setClassrm(Classroom classrm) {
+		this.classrm = classrm;
 	}
 	
 
