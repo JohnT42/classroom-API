@@ -2,11 +2,9 @@ package com.qa.persistance.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Trainee {
@@ -19,8 +17,7 @@ public class Trainee {
 	@Column(length = 100)
 	private String trainee;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	private Classroom classrm;
+	private String classrm;
 
 	public Long getTraineeID() {
 		return traineeID;
@@ -38,11 +35,11 @@ public class Trainee {
 		this.trainee = trainee;
 	}
 
-	public Classroom getClassrm() {
+	public String getClassrm() {
 		return classrm;
 	}
 
-	public void setClassrm(Classroom classrm) {
+	public void setClassrm(String classrm) {
 		this.classrm = classrm;
 	}
 	

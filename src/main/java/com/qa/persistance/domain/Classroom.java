@@ -1,8 +1,11 @@
 package com.qa.persistance.domain;
 
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +15,6 @@ import javax.persistence.OneToMany;
 public class Classroom {
 	public Classroom() {
 	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long classroomID;
@@ -20,9 +22,9 @@ public class Classroom {
 	@Column(length = 100)
 	private String trainer;
 
-	@OneToMany(mappedBy="classrm")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "classrm",fetch=FetchType.EAGER)
 	private List<Trainee> trainees;
-
+	
 	public Long getClassroomID() {
 		return classroomID;
 	}
